@@ -26,7 +26,7 @@
 						</span>
             </div>
             <div class="wrap-input100 validate-input" data-validate = "Username is required">
-              <input class="input100" type="text" name="username" >
+              <input v-model="ruleForm.name" class="input100" type="text" >
               <span class="focus-input100"></span>
             </div>
 
@@ -40,16 +40,16 @@
               </a>
             </div>
             <div class="wrap-input100 validate-input" data-validate = "Password is required">
-              <input class="input100" type="password" name="pass" >
+              <input class="input100" type="password" v-model="ruleForm.pass" >
               <span class="focus-input100"></span>
             </div>
 
             <div class="container-login100-form-btn m-t-17">
-              <button class="login100-form-btn">
+              <button class="login100-form-btn" @click="login(ruleForm)">
                 登陆
               </button>
             </div>
-
+            <p v-show="showTishi" align="center" class="txt1">{{tishi}}</p>
             <div class="w-full text-center p-t-55">
 
               <a href="#" class="txt2 bo1">
@@ -65,35 +65,35 @@
 </template>
 
 <!--===============================================================================================-->
-<script src="src/components/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--<script src="src/components/login/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-<script src="src/components/login/vendor/animsition/js/animsition.min.js"></script>
+<!--<script src="src/components/login/vendor/animsition/js/animsition.min.js"></script>
 
 <!--===============================================================================================-->
-<script src="src/components/login/vendor/bootstrap/js/popper.js"></script>
+<!--<script src="src/components/login/vendor/bootstrap/js/popper.js"></script>
 <script src="src/components/login/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-<script src="src/components/login/vendor/select2/select2.min.js"></script>
+<!--<script src="src/components/login/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-<script src="src/components/login/vendor/daterangepicker/moment.min.js"></script>
+<!--<script src="src/components/login/vendor/daterangepicker/moment.min.js"></script>
 <script src="src/components/login/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-<script src="src/components/login/vendor/countdowntime/countdowntime.js"></script>
+<!--<script src="src/components/login/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-<script src="src/components/login/js/main.js"></script>
-
-<script type="javascript">
+<!--<script src="src/components/login/js/main.js"></script>
+-->
+<script src="./js/login.js">
 
 </script>
 <!--<style scoped type="text/css" src="./login/images/icons/favicon.ico"></style>-->
-<style src="./login/vendor/bootstrap/css/bootstrap.min.css"/>
-<style src="./login/fonts/font-awesome-4.7.0/css/font-awesome.min.css"/>
-<style src="./login/vendor/animate/animate.css"/>
-<style src="./login/vendor/css-hamburgers/hamburgers.min.css"/>
-<style src="./login/vendor/animsition/css/animsition.min.css"/>
-<style src="./login/vendor/daterangepicker/daterangepicker.css"/>
-<style src="./login/css/util.css"/>
-<style src="./login/css/main.css"/>
+<style src="./login/vendor/bootstrap/css/bootstrap.min.css"></style>
+<style src="./login/fonts/font-awesome-4.7.0/css/font-awesome.min.css"></style>
+<style src="./login/vendor/animate/animate.css"></style>
+<style src="./login/vendor/css-hamburgers/hamburgers.min.css"></style>
+<style src="./login/vendor/animsition/css/animsition.min.css"></style>
+<style src="./login/vendor/daterangepicker/daterangepicker.css"></style>
+<style src="./login/css/util.css"></style>
+<style src="./login/css/main.css"></style>
 <style scoped type="text/css" src="./login/vendor/select2/select2.min.css">
   img.resize {
     height:50px;

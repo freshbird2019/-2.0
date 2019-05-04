@@ -4,12 +4,12 @@
     <p v-show="showTishi" align="center">{{tishi}}</p>
     <el-form-item label="用户名" :rules="[
       { required: true, message: '请输入用户名', trigger: 'blur' }]">
-    <el-input v-model="rules.name"></el-input>
+    <el-input v-model="ruleForm.username"></el-input>
   </el-form-item>
 
   <el-form-item label="密码" prop="pass" :rules="[
       { required: true, message: '请输入密码', trigger: 'blur' }]">
-    <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+    <el-input type="password" v-model="ruleForm.pwd" autocomplete="off"></el-input>
   </el-form-item>
   <el-form-item label="确认密码" prop="checkPass">
     <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
@@ -38,7 +38,7 @@
       <el-input v-model.number="ruleForm.address"></el-input>
     </el-form-item>
     <el-form-item label="所在医院" prop="hos">
-      <el-input v-model.number="ruleForm.hos"></el-input>
+      <el-input v-model.number="ruleForm.hospital"></el-input>
     </el-form-item>
   <el-form-item>
     <el-button type="primary" @click="Register(ruleForm)">提交</el-button>

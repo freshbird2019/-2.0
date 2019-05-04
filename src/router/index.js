@@ -9,6 +9,7 @@ import step1 from '@/components/step1'
 import step2 from '@/components/step2'
 import step3 from '@/components/step3'
 import step4 from '@/components/step4'
+import trainone from '@/components/trainone'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/practice',
       name: 'practice',
       component: practice
+    },
+    {
+      path: '/trainone',
+      name: 'trainone',
+      component: trainone
     },
     {
       path: '/login',

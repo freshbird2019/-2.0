@@ -40,20 +40,8 @@ export default {
       return {
         checked: false,
         ruleForm: {
-          pass: '',
-          checkPass: '',
-          age: ''
-        },
-        rules: {
-          pass: [
-            { validator: validatePass, trigger: 'blur' }
-          ],
-          checkPass: [
-            { validator: validatePass2, trigger: 'blur' }
-          ],
-          age: [
-            { validator: checkAge, trigger: 'blur' }
-          ]
+          name:'',
+          pass:''
         },
         tishi:'',
         showTishi: false,
@@ -83,14 +71,14 @@ export default {
 
       // 登陆
       login(formName) {
-        console.log(formName.name);
+        console.log(formName);
         if(formName.name === "" ){
           alert("请输入用户名")
         }else{
          // var name=encodeURI(formName.name);
           let data = {'name':formName.name,'pw':formName.pass};
           /*接口请求*/
-          //之前后端接受到的值是null，因为用get
+          //之前后端接受到的值是null，因为用get!!!不是因为get问题，是后端路径问题
           this.$http.post('http://127.0.0.1:8088/project/UserLogin',data).then((res)=>{
             console.log(res)
             if(res.data === 1){
@@ -103,7 +91,14 @@ export default {
             else{
               this.tishi = "登录成功"
               this.showTishi = true
-              setCookie('username',formName.name,1000*60)
+
+             this.$ajax.get( 'http://127.0.0.1:8088/project/getUseridByname/'+formName.name
+              ).then(response=>{
+                console.log(response.data);
+                let userid=response.data;
+                setCookie('userid',userid,1000*60)
+              });
+
               setTimeout(function(){
                 this.$router.push('/stu/s-timeline')
               }.bind(this),1000)

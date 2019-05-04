@@ -29,7 +29,7 @@
       var validatePass2 = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请再次输入密码'));
-        } else if (value !== this.ruleForm.pass) {
+        } else if (value !== this.ruleForm.pwd) {
           callback(new Error('两次输入密码不一致!'));
         } else {
           callback();
@@ -37,18 +37,18 @@
       };
       return {
         ruleForm: {
-          name:'',
-          pass: '',
+          username:'',
+          pwd: '',
           checkPass: '',
           phone:'',
           email: '',
           age: '',
           sex:'',
           address:'',
-          hos:''
+          hospital:''
         },
         rules: {
-          pass: [
+          pwd: [
             { validator: validatePass, trigger: 'blur' }
           ],
           checkPass: [
@@ -77,16 +77,21 @@
         this.$refs[formName].resetFields();
       },
       Register(){
-
-
-          let data = this.ruleForm;
-          console.log(data);
+        console.log(this.ruleForm);
         this.$ajax({
           method: 'post',
-          url: 'http://127.0.0.1:8088/project//UserRegister',
-          data: data,
-          dataType:'json',
-          contentType: "application/json;charset=utf-8",
+          url: 'http://127.0.0.1:8088/project/UserRegister',
+          data: {
+            'username':this.ruleForm.username,
+            'pwd':this.ruleForm.pwd,
+            'email':this.ruleForm.email,
+            'phone':this.ruleForm.phone,
+            'sex':this.ruleForm.sex,
+            'address':this.ruleForm.address,
+            'hospital':this.ruleForm.hospital,
+            'age':this.ruleForm.age
+          },
+          headers : {"Content-Type" : "application/json;charset=utf-8"},
         }).then((res) => {
             console.log(res)
             if (res.data === true) {
