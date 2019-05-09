@@ -65,7 +65,9 @@ export default{
     //加载训练图片信息
     console.log("loading data.");
     console.log(this.userid);
-    this.$ajax.get( 'http://127.0.0.1:8088/project/notrainedpic/'+this.userid
+      let id=this.userid;
+    if(id==="")id=1;
+    this.$ajax.get( 'http://127.0.0.1:8088/project/notrainedpic/'+id
     ).then(response=>{
       console.log(response.data);
       for(let i= 0; i<response.data.length;i++) {

@@ -6,14 +6,15 @@ export default{
 			avatar:require('../img/img.jpg'),
 			length:0,
       imgs:[],
+      d:[],
 			currentPage : 1 ,
       imgs_list : [] ,
   		totalpage : 0
 		};
 	},
 	mounted (){
-    this.imgs = JSON.parse(localStorage.getItem('imgs'));
-    this.length=this.imgs.length;
+   // this.imgs = JSON.parse(localStorage.getItem('imgs'));
+   // this.length=this.imgs.length;
     this.initUsers();
     this.inittotalpage ();
     //alert(this.totalpage);
@@ -40,10 +41,13 @@ export default{
                 this.files = e.target.files[0]
                 var reader = new FileReader()
                 var that = this
-                reader.readAsDataURL(this.files)
+                reader.readAsDataURL(that.files)
                 reader.onload = function(e) {
                     that.avatar=this.result;
-                    that.imgs.push({img:that.avatar,name:"aa",radio:false});
+                  that.imgs.push({ img:that.avatar, name:"aa", radio:false });
+                  alert(that.imgs.length);
+                    //that.imgs.push({ img:that.avatar, name:"aa", radio:false });
+                   // alert(that.imgs.length);
                 	that.length=that.imgs.length;
                 }
             },

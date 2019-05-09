@@ -20,7 +20,7 @@
               </div>
             </el-main>
             <el-footer style="">
-              <el-pagination small @size-change="handleSizePage" @current-change="handleCurrentChange" 
+              <el-pagination small @size-change="handleSizePage" @current-change="handleCurrentChange"
               :current-page="currentPage" background layout="prev ,pager , next" :total="totalpage *7">
               </el-pagination>
             </el-footer>
